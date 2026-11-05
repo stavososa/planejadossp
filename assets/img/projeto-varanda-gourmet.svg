@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" width="1800" height="1000" role="img" aria-label="Ilustração de varanda gourmet planejada com churrasqueira embutida, bancada com banquetas, armários e vista para a cidade" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="varSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF6F8"/><stop offset="1" stop-color="#BDDCE2"/></linearGradient>
+    <linearGradient id="varFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2B38C"/><stop offset="1" stop-color="#B6895F"/></linearGradient>
+    <linearGradient id="varCab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#113B45"/><stop offset="1" stop-color="#0A2A31"/></linearGradient>
+    <linearGradient id="varWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DCBF9A"/><stop offset="1" stop-color="#C19C70"/></linearGradient>
+    <linearGradient id="varStone" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FBFDFD"/><stop offset="1" stop-color="#DFE9EB"/></linearGradient>
+    <linearGradient id="varShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></linearGradient>
+    <linearGradient id="varUnder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2A31" stop-opacity=".32"/><stop offset="1" stop-color="#0B2A31" stop-opacity="0"/></linearGradient>
+  </defs>
+
+  <rect width="1800" height="1000" fill="url(#varSky)"/>
+
+  <!-- Skyline ao fundo, visto da varanda -->
+  <g fill="#0A2A31" opacity=".12">
+    <rect x="1120" y="470" width="110" height="260"/>
+    <rect x="1250" y="400" width="90" height="330"/>
+    <rect x="1360" y="520" width="130" height="210"/>
+    <rect x="1510" y="440" width="100" height="290"/>
+    <rect x="1630" y="540" width="120" height="190"/>
+  </g>
+
+  <!-- Guarda-corpo de vidro -->
+  <rect x="1080" y="560" width="700" height="190" fill="#FFFFFF" opacity=".28"/>
+  <rect x="1080" y="548" width="700" height="16" rx="8" fill="#0A2A31" opacity=".5"/>
+  <path d="M1200 564v186M1340 564v186M1480 564v186M1620 564v186" stroke="#0A2A31" stroke-opacity=".22" stroke-width="7"/>
+
+  <!-- Piso -->
+  <rect y="740" width="1800" height="260" fill="url(#varFloor)"/>
+  <path d="M0 800h1800M0 880h1800" stroke="#0A2A31" stroke-opacity=".08" stroke-width="6"/>
+
+  <!-- Painel ripado de fundo -->
+  <rect x="60" y="60" width="520" height="690" rx="10" fill="url(#varWood)"/>
+  <g stroke="#0A2A31" stroke-opacity=".16" stroke-width="7">
+    <path d="M110 70v670M160 70v670M210 70v670M260 70v670M310 70v670M360 70v670M410 70v670M460 70v670M510 70v670"/>
+  </g>
+
+  <!-- Churrasqueira embutida -->
+  <rect x="620" y="200" width="380" height="300" rx="12" fill="url(#varCab)"/>
+  <rect x="620" y="200" width="380" height="300" rx="12" fill="url(#varShade)"/>
+  <rect x="664" y="246" width="292" height="208" rx="8" fill="#0A2A31"/>
+  <rect x="664" y="246" width="292" height="208" rx="8" fill="none" stroke="#A9DCE3" stroke-opacity=".3" stroke-width="6"/>
+  <path d="M690 300h240M690 350h240M690 400h240" stroke="#C7784B" stroke-opacity=".55" stroke-width="10"/>
+  <rect x="600" y="120" width="420" height="70" rx="10" fill="url(#varCab)"/>
+  <path d="M810 120V60" stroke="#0A2A31" stroke-opacity=".45" stroke-width="22"/>
+
+  <!-- Bancada com cuba e armários -->
+  <rect x="600" y="520" width="520" height="40" rx="8" fill="url(#varStone)"/>
+  <rect x="600" y="560" width="520" height="190" rx="10" fill="url(#varCab)"/>
+  <rect x="600" y="560" width="520" height="190" rx="10" fill="url(#varShade)"/>
+  <path d="M860 568v174" stroke="#A9DCE3" stroke-opacity=".3" stroke-width="5"/>
+  <rect x="690" y="620" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="930" y="620" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="600" y="750" width="520" height="50" fill="url(#varUnder)"/>
+  <rect x="1024" y="482" width="80" height="38" rx="10" fill="#FFFFFF" opacity=".9"/>
+
+  <!-- Bancada de refeição com banquetas -->
+  <rect x="180" y="640" width="400" height="34" rx="8" fill="url(#varStone)"/>
+  <rect x="200" y="674" width="360" height="30" rx="8" fill="url(#varWood)"/>
+  <g fill="#A9DCE3">
+    <circle cx="250" cy="790" r="42"/>
+    <circle cx="380" cy="790" r="42"/>
+    <circle cx="510" cy="790" r="42"/>
+  </g>
+  <g stroke="#0A2A31" stroke-opacity=".35" stroke-width="10" stroke-linecap="round">
+    <path d="M250 832v70M380 832v70M510 832v70"/>
+  </g>
+
+  <!-- Adega e nicho de apoio -->
+  <rect x="1150" y="300" width="170" height="250" rx="10" fill="url(#varWood)"/>
+  <path d="M1150 380h170M1150 460h170" stroke="#0A2A31" stroke-opacity=".18" stroke-width="7"/>
+  <g fill="#0A2A31" opacity=".35">
+    <circle cx="1190" cy="345" r="14"/><circle cx="1232" cy="345" r="14"/><circle cx="1274" cy="345" r="14"/>
+    <circle cx="1190" cy="425" r="14"/><circle cx="1232" cy="425" r="14"/><circle cx="1274" cy="425" r="14"/>
+  </g>
+
+  <rect width="1800" height="1000" fill="url(#varShade)" opacity=".5"/>
+</svg>

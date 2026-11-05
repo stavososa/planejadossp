@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" width="1800" height="1000" role="img" aria-label="Ilustração de lavanderia planejada com torre para máquina e secadora, armários suspensos e tanque" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="lavWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF4F5"/><stop offset="1" stop-color="#CBDADD"/></linearGradient>
+    <linearGradient id="lavFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2B38C"/><stop offset="1" stop-color="#BE9A70"/></linearGradient>
+    <linearGradient id="lavCab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#113B45"/><stop offset="1" stop-color="#0A2A31"/></linearGradient>
+    <linearGradient id="lavWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D8BC98"/><stop offset="1" stop-color="#C3A074"/></linearGradient>
+    <linearGradient id="lavSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4FBFC"/><stop offset="1" stop-color="#C6E3E8"/></linearGradient>
+    <linearGradient id="lavShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>
+    <linearGradient id="lavUnder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2A31" stop-opacity=".3"/><stop offset="1" stop-color="#0B2A31" stop-opacity="0"/></linearGradient>
+  </defs>
+
+  <rect width="1800" height="1000" fill="url(#lavWall)"/>
+  <rect y="820" width="1800" height="180" fill="url(#lavFloor)"/>
+  <rect y="812" width="1800" height="12" fill="#0A2A31" opacity=".12"/>
+
+  <!-- Janela com luz natural -->
+  <rect x="1180" y="150" width="420" height="330" rx="10" fill="url(#lavSky)"/>
+  <rect x="1180" y="150" width="420" height="330" rx="10" fill="none" stroke="#0A2A31" stroke-opacity=".3" stroke-width="10"/>
+  <path d="M1390 150v330M1180 315h420" stroke="#0A2A31" stroke-opacity=".22" stroke-width="8"/>
+
+  <!-- Armários suspensos -->
+  <rect x="120" y="120" width="900" height="260" rx="14" fill="url(#lavCab)"/>
+  <rect x="120" y="120" width="900" height="260" rx="14" fill="url(#lavShade)"/>
+  <path d="M420 128v244M720 128v244" stroke="#A9DCE3" stroke-opacity=".28" stroke-width="5"/>
+  <rect x="300" y="352" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="600" y="352" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="900" y="352" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="120" y="380" width="900" height="40" fill="url(#lavUnder)"/>
+
+  <!-- Varal retrátil embutido -->
+  <rect x="1190" y="520" width="400" height="18" rx="9" fill="url(#lavWood)"/>
+  <path d="M1250 538v120M1340 538v150M1430 538v110M1520 538v140" stroke="#0A2A31" stroke-opacity=".22" stroke-width="6"/>
+  <rect x="1246" y="650" width="70" height="90" rx="8" fill="#A9DCE3" opacity=".65"/>
+  <rect x="1402" y="640" width="64" height="80" rx="8" fill="#FFFFFF" opacity=".75"/>
+
+  <!-- Torre: máquina de lavar e secadora -->
+  <rect x="150" y="430" width="330" height="390" rx="14" fill="#FFFFFF"/>
+  <rect x="150" y="430" width="330" height="390" rx="14" fill="url(#lavShade)"/>
+  <rect x="150" y="430" width="330" height="390" rx="14" fill="none" stroke="#0A2A31" stroke-opacity=".22" stroke-width="8"/>
+  <path d="M150 625h330" stroke="#0A2A31" stroke-opacity=".22" stroke-width="8"/>
+  <circle cx="315" cy="530" r="62" fill="#A9DCE3" opacity=".7"/>
+  <circle cx="315" cy="530" r="62" fill="none" stroke="#0A2A31" stroke-opacity=".3" stroke-width="8"/>
+  <circle cx="315" cy="725" r="62" fill="#C6E3E8" opacity=".8"/>
+  <circle cx="315" cy="725" r="62" fill="none" stroke="#0A2A31" stroke-opacity=".3" stroke-width="8"/>
+
+  <!-- Bancada com tanque e gabinete -->
+  <rect x="500" y="500" width="520" height="34" rx="8" fill="url(#lavWood)"/>
+  <rect x="500" y="534" width="520" height="286" rx="10" fill="url(#lavCab)"/>
+  <rect x="500" y="534" width="520" height="286" rx="10" fill="url(#lavShade)"/>
+  <path d="M760 542v270" stroke="#A9DCE3" stroke-opacity=".28" stroke-width="5"/>
+  <rect x="580" y="610" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="830" y="610" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="580" y="700" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="830" y="700" width="110" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="604" y="462" width="180" height="40" rx="10" fill="#FFFFFF" opacity=".92"/>
+  <path d="M694 462v-70a34 34 0 0 1 34-34h40" fill="none" stroke="#0A2A31" stroke-opacity=".5" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Cesto de roupa -->
+  <rect x="1090" y="690" width="140" height="130" rx="16" fill="url(#lavWood)"/>
+  <path d="M1110 710h100M1110 750h100M1110 790h100" stroke="#0A2A31" stroke-opacity=".16" stroke-width="8"/>
+
+  <rect width="1800" height="1000" fill="url(#lavShade)" opacity=".5"/>
+</svg>

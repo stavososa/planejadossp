@@ -1,0 +1,1546 @@
+/* ==========================================================================
+   MarcenariaSP — Página de ambiente (conversão e captação de leads)
+   Carregada depois de styles.css. Reaproveita tokens, botões, formulário e FAQ.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   2. Primeira dobra: promessa + formulário
+   -------------------------------------------------------------------------- */
+.lp-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--sp-10) var(--sp-12);
+  border-radius: 0 0 0 var(--r-hero);
+  background: var(--c-dark);
+  color: var(--c-inverse);
+}
+
+.lp-hero__bg {
+  position: absolute;
+  inset: -20px;
+  z-index: -4;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  object-fit: cover;
+  object-position: center center;
+  transform: scaleX(-1);
+  filter: blur(20px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.lp-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+.lp-hero__blur,
+.lp-hero__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.lp-hero__blur {
+  z-index: -2;
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .lp-hero__blur::before,
+  .lp-hero__blur::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .lp-hero__blur::before {
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    -webkit-mask-image: linear-gradient(0deg, #000 0%, #000 45%, transparent 90%);
+    mask-image: linear-gradient(0deg, #000 0%, #000 45%, transparent 90%);
+  }
+
+  .lp-hero__blur::after {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    -webkit-mask-image: linear-gradient(0deg, #000 0%, #000 70%, transparent 100%);
+    mask-image: linear-gradient(0deg, #000 0%, #000 70%, transparent 100%);
+  }
+}
+
+.lp-hero__scrim {
+  z-index: -1;
+  background: linear-gradient(
+    0deg,
+    rgba(var(--c-scrim), 0.94) 0%,
+    rgba(var(--c-scrim), 0.88) 55%,
+    rgba(var(--c-scrim), 0.7) 100%
+  );
+}
+
+.lp-hero__grid {
+  display: grid;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+.lp-hero__text h1 {
+  max-width: 17ch;
+  font-size: clamp(2.2rem, 8.4vw, 3.1rem);
+  line-height: 1.04;
+}
+
+.lp-hero__lead {
+  max-width: 50ch;
+  margin-top: var(--sp-5);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: var(--fs-lead);
+  line-height: 1.7;
+}
+
+.lp-hero__note {
+  margin-top: var(--sp-6);
+  max-width: 48ch;
+  color: var(--c-inverse-2);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.lp-form {
+  width: 100%;
+  max-width: 480px;
+  justify-self: center;
+  padding: var(--sp-6);
+}
+
+.lp-form .field label {
+  margin-bottom: 6px;
+}
+
+.lp-form .field input,
+.lp-form .field select {
+  min-height: 50px;
+}
+
+.lp-form .lead-form__intro {
+  margin-top: 6px;
+}
+
+.lp-form h2,
+.lp-form .lp-form__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.lp-form .lead-form__fields {
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+.lp-form .btn {
+  margin-top: var(--sp-4);
+}
+
+.lp-form__safe {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  color: var(--c-text-2);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.lp-form__safe .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--c-success);
+}
+
+.lp-form__alt {
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-border);
+  text-align: center;
+  font-size: var(--fs-small);
+  color: var(--c-text-2);
+}
+
+.lp-form__alt a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 44px;
+  color: var(--c-accent-hover);
+  font-weight: 700;
+}
+
+.lp-form__alt .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Celular: o formulário precisa aparecer já na primeira tela */
+@media (max-width: 767.98px) {
+  .lp-hero {
+    padding-block: var(--sp-6) var(--sp-8);
+  }
+
+  .lp-hero__note {
+    display: none;
+  }
+
+  .lp-hero__lead {
+    margin-top: var(--sp-3);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .lp-hero__text h1 {
+    font-size: clamp(1.95rem, 8.2vw, 2.4rem);
+  }
+
+  .lp-hero .eyebrow {
+    margin-bottom: var(--sp-3);
+  }
+
+  .lp-hero__grid {
+    gap: var(--sp-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .lp-form {
+    padding: var(--sp-8);
+  }
+
+  .lp-hero .lp-form {
+    padding: var(--sp-6) var(--sp-8);
+  }
+
+  .lp-hero {
+    padding-block: var(--sp-16);
+  }
+
+  .lp-hero__text h1 {
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-hero {
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+  }
+
+  .lp-hero__grid {
+    width: min(100% - 2 * var(--gutter), var(--max));
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--sp-16);
+  }
+
+  .lp-form {
+    justify-self: end;
+  }
+
+  .lp-hero__media {
+    left: auto;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+  }
+
+  .lp-hero__blur::before {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 38%, transparent 62%);
+    mask-image: linear-gradient(90deg, #000 0%, #000 38%, transparent 62%);
+  }
+
+  .lp-hero__blur::after {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 70%);
+    mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 70%);
+  }
+
+  .lp-hero__scrim {
+    background: linear-gradient(
+      90deg,
+      rgba(var(--c-scrim), 0.94) 0%,
+      rgba(var(--c-scrim), 0.84) 40%,
+      rgba(var(--c-scrim), 0.45) 62%,
+      rgba(var(--c-scrim), 0.1) 82%,
+      transparent 100%
+    );
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Chamadas intermediárias
+   -------------------------------------------------------------------------- */
+.lp-strip {
+  display: grid;
+  gap: var(--sp-4);
+  align-items: center;
+  margin-top: var(--sp-12);
+  padding: var(--sp-6);
+  border-radius: var(--r-md);
+  background: var(--c-dark);
+  color: var(--c-inverse);
+}
+
+.lp-strip p {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.lp-strip span {
+  display: block;
+  margin-top: var(--sp-2);
+  color: var(--c-inverse-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .lp-strip {
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-8);
+    padding: var(--sp-8) var(--sp-10);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Layouts de cozinha (abas)
+   -------------------------------------------------------------------------- */
+.lp-tabs {
+  display: flex;
+  gap: var(--sp-2);
+  margin: 0 calc(var(--gutter) * -1) var(--sp-6);
+  padding: 0 var(--gutter) var(--sp-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lp-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.lp-tab {
+  flex: none;
+  min-height: 48px;
+  padding: 0 var(--sp-5);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.lp-tab:hover {
+  border-color: var(--c-accent);
+}
+
+.lp-tab[aria-selected="true"] {
+  border-color: var(--c-dark);
+  background: var(--c-dark);
+  color: var(--c-inverse);
+}
+
+.lp-layout {
+  display: grid;
+  gap: var(--sp-6);
+  padding: var(--sp-5);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lp-layout + .lp-layout {
+  margin-top: var(--sp-4);
+}
+
+.lp-layout[hidden] {
+  display: none;
+}
+
+.lp-plan {
+  margin: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-tint);
+}
+
+.lp-plan svg {
+  width: 100%;
+  height: auto;
+}
+
+.plan__room {
+  fill: var(--c-surface);
+  stroke: var(--c-border-strong);
+  stroke-width: 2;
+}
+
+.plan__cab {
+  fill: var(--c-dark);
+}
+
+.plan__island {
+  fill: var(--c-accent);
+}
+
+.plan__stool {
+  fill: var(--c-accent-soft);
+}
+
+.plan__fix {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.5;
+}
+
+.plan__zone {
+  fill: none;
+  stroke: var(--c-border-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+}
+
+.plan__door {
+  fill: none;
+  stroke: var(--c-accent);
+  stroke-width: 1.5;
+}
+
+.plan__label {
+  fill: var(--c-text-2);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  /* Halo na cor do fundo: o rótulo continua legível quando cai sobre um móvel escuro ou sobre a ilha. */
+  paint-order: stroke;
+  stroke: var(--c-surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.lp-layout__body h3 {
+  font-size: 1.5rem;
+}
+
+.lp-layout__body > p {
+  margin-top: var(--sp-3);
+  color: var(--c-text-2);
+}
+
+.lp-layout__facts {
+  display: grid;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+
+.lp-layout__facts dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.lp-layout__facts dd {
+  margin: 2px 0 0;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.lp-layout__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4) var(--sp-6);
+  margin-top: var(--sp-6);
+}
+
+@media (min-width: 768px) {
+  .lp-tabs {
+    margin-inline: 0;
+    padding-inline: 0;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .lp-layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--sp-10);
+    align-items: center;
+    padding: var(--sp-8);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Preço e padrões
+   -------------------------------------------------------------------------- */
+.lp-tiers {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.lp-tier {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lp-tier__tag {
+  color: var(--c-accent);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lp-tier h3 {
+  margin-top: var(--sp-2);
+  font-size: 1.6rem;
+}
+
+.lp-tier__price {
+  margin-top: var(--sp-4);
+  padding-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.lp-tier__price strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lp-tier__price span {
+  display: block;
+  min-height: 3.5em;
+  margin-top: 2px;
+  color: var(--c-text-2);
+  font-size: 0.8125rem;
+}
+
+.lp-tier ul {
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.lp-tier li {
+  display: flex;
+  gap: var(--sp-3);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+.lp-tier li .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--c-accent);
+}
+
+.lp-tier li b {
+  font-weight: 700;
+}
+
+.lp-drivers {
+  margin-top: var(--sp-10);
+  padding: var(--sp-6);
+  border-radius: var(--r-md);
+  background: var(--c-tint);
+}
+
+.lp-drivers h3 {
+  font-size: 1.25rem;
+}
+
+.lp-drivers ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+
+.lp-drivers li {
+  padding: 8px 14px;
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.lp-note {
+  margin-top: var(--sp-4);
+  max-width: 78ch;
+  color: var(--c-text-2);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  .lp-tiers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+
+  .lp-drivers {
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    gap: var(--sp-8);
+    align-items: center;
+    padding: var(--sp-8);
+  }
+
+  .lp-drivers ul {
+    margin-top: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Comparativo e ficha do móvel
+   -------------------------------------------------------------------------- */
+.lp-compare {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.lp-compare__col {
+  padding: var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lp-compare__col--us {
+  border-color: var(--c-dark);
+  box-shadow: var(--shadow-subtle);
+}
+
+.lp-compare__col h3 {
+  font-size: 1.35rem;
+}
+
+.lp-compare__col dl {
+  display: grid;
+  gap: var(--sp-4);
+  margin: var(--sp-5) 0 0;
+}
+
+.lp-compare__col dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-2);
+}
+
+.lp-compare__col dd {
+  margin: 2px 0 0;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+@media (min-width: 1024px) {
+  .lp-compare {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+
+  .lp-compare__col h3 {
+    min-height: 2.5em;
+  }
+}
+
+.lp-spec {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.lp-spec__item {
+  padding: var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+}
+
+.lp-spec__item .icon {
+  width: 28px;
+  height: 28px;
+  color: var(--c-accent);
+}
+
+.lp-inside {
+  margin-top: var(--sp-16);
+}
+
+.lp-inside > h3 {
+  max-width: 24ch;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.lp-inside__lead {
+  max-width: 62ch;
+  margin: var(--sp-3) 0 var(--sp-8);
+  color: var(--c-text-2);
+}
+
+.lp-spec__item h3,
+.lp-spec__item h4 {
+  margin-top: var(--sp-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.lp-spec__item p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .lp-spec {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-spec {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lp-spec--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.lp-callout {
+  margin-top: var(--sp-8);
+  padding: var(--sp-5) var(--sp-6);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--c-tint);
+  font-size: var(--fs-small);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   9. Como funciona (linha do tempo)
+   -------------------------------------------------------------------------- */
+.lp-flow {
+  display: grid;
+  gap: var(--sp-4);
+  counter-reset: flow;
+}
+
+.lp-flow__step {
+  position: relative;
+  padding: var(--sp-6) var(--sp-6) var(--sp-6) 76px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  counter-increment: flow;
+}
+
+.lp-flow__step::before {
+  content: counter(flow);
+  position: absolute;
+  left: var(--sp-6);
+  top: var(--sp-5);
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--c-accent);
+}
+
+.lp-flow__step h3 {
+  font-size: 1.25rem;
+}
+
+.lp-flow__step p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.lp-flow__calm {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--c-tint);
+  color: var(--c-accent-hover);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .lp-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Projetos
+   -------------------------------------------------------------------------- */
+.lp-works {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.lp-work {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-subtle);
+}
+
+.lp-work img {
+  width: 100%;
+  aspect-ratio: 4 / 4.3;
+  object-fit: cover;
+}
+
+.lp-work figcaption {
+  padding: var(--sp-5) var(--sp-6) var(--sp-6);
+}
+
+.lp-work figcaption strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.lp-work figcaption span {
+  display: block;
+  margin-top: var(--sp-2);
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .lp-works {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Garantia e contrato
+   -------------------------------------------------------------------------- */
+.lp-guarantee {
+  background: var(--c-dark);
+  color: var(--c-inverse);
+}
+
+.lp-guarantee__grid {
+  display: grid;
+  gap: var(--sp-10);
+}
+
+.lp-guarantee h2 {
+  max-width: 16ch;
+}
+
+.lp-guarantee__lead {
+  max-width: 48ch;
+  margin-top: var(--sp-5);
+  color: var(--c-inverse-2);
+}
+
+.lp-guarantee .btn {
+  margin-top: var(--sp-8);
+}
+
+.lp-clauses {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.lp-clauses li {
+  display: flex;
+  gap: var(--sp-4);
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  line-height: 1.5;
+}
+
+.lp-clauses .icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  color: var(--c-accent-soft);
+}
+
+.lp-clauses b {
+  display: block;
+  font-weight: 700;
+}
+
+.lp-clauses span {
+  display: block;
+  margin-top: 2px;
+  color: var(--c-inverse-2);
+  font-size: var(--fs-small);
+}
+
+/* .lp-clauses nasceu para a seção escura de garantia (texto claro). As páginas
+   institucionais a usam em seções CLARAS, onde o texto claro ficava quase
+   invisível; fora de .lp-guarantee ela usa as cores de texto e de borda do tema. */
+.section:not(.lp-guarantee) .lp-clauses {
+  border-top-color: var(--c-border-strong);
+}
+
+.section:not(.lp-guarantee) .lp-clauses li {
+  border-bottom-color: var(--c-border-strong);
+  color: var(--c-text);
+}
+
+.section:not(.lp-guarantee) .lp-clauses .icon {
+  color: var(--c-accent);
+}
+
+.section:not(.lp-guarantee) .lp-clauses span {
+  color: var(--c-text-2);
+}
+
+@media (min-width: 1024px) {
+  .lp-guarantee__grid {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-20);
+    align-items: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Checklist de comparação (captura secundária)
+   -------------------------------------------------------------------------- */
+.lp-check {
+  display: grid;
+  gap: var(--sp-8);
+  padding: var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lp-check h2 {
+  font-size: clamp(1.75rem, 6vw, 2.3rem);
+}
+
+.lp-check__lead {
+  margin-top: var(--sp-3);
+  color: var(--c-text-2);
+}
+
+.lp-check__list {
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  counter-reset: chk;
+}
+
+.lp-check__list li {
+  position: relative;
+  padding-left: 40px;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  counter-increment: chk;
+}
+
+.lp-check__list li::before {
+  content: counter(chk);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--c-tint);
+  color: var(--c-accent-hover);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.lp-check details {
+  margin-top: var(--sp-4);
+}
+
+.lp-check summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 44px;
+  color: var(--c-accent-hover);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lp-check summary::-webkit-details-marker {
+  display: none;
+}
+
+.lp-check details[open] summary .icon {
+  transform: rotate(45deg);
+}
+
+.lp-check details .lp-check__list {
+  margin-top: var(--sp-3);
+  counter-reset: chk 8;
+}
+
+.lp-check__form {
+  align-self: start;
+  padding: var(--sp-6);
+  border-radius: var(--r-md);
+  background: var(--c-tint);
+}
+
+.lp-check__form .lp-form__title {
+  font-size: 1.3rem;
+}
+
+.lp-check__form p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+}
+
+.lp-check__form .lead-form__fields {
+  margin-top: var(--sp-5);
+}
+
+@media (min-width: 1024px) {
+  .lp-check {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--sp-12);
+    padding: var(--sp-10);
+  }
+
+  .lp-check__list--cols {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* O formulário compacto dentro de fundo claro não tem sombra própria */
+.lp-check__form.lead-form {
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   13. FAQ por objeção
+   -------------------------------------------------------------------------- */
+.lp-faq__group + .lp-faq__group {
+  margin-top: var(--sp-8);
+}
+
+.lp-faq__title {
+  margin-bottom: var(--sp-2);
+  color: var(--c-accent);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lp-faq__group .faq__list {
+  border-top: 1px solid var(--c-border-strong);
+}
+
+/* --------------------------------------------------------------------------
+   14. Chamada final
+   -------------------------------------------------------------------------- */
+.lp-final {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--section-y);
+  background: var(--c-dark);
+  color: var(--c-inverse);
+}
+
+.lp-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(23, 96, 108, 0.55), transparent 70%),
+    radial-gradient(50% 70% at 0% 100%, rgba(23, 96, 108, 0.35), transparent 70%);
+}
+
+.lp-final__grid {
+  display: grid;
+  gap: var(--sp-10);
+}
+
+.lp-final h2 {
+  max-width: 14ch;
+}
+
+.lp-final__lead {
+  max-width: 46ch;
+  margin-top: var(--sp-5);
+  color: var(--c-inverse-2);
+}
+
+.lp-final__alt {
+  margin-top: var(--sp-8);
+}
+
+@media (min-width: 1024px) {
+  .lp-final__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--sp-20);
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. Outros ambientes e rodapé enxuto
+   -------------------------------------------------------------------------- */
+.lp-area {
+  margin-top: var(--sp-8);
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+}
+
+/* --------------------------------------------------------------------------
+   16. Barra fixa no celular
+   -------------------------------------------------------------------------- */
+.lp-sticky {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 45;
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-3) max(var(--sp-4), env(safe-area-inset-right)) max(var(--sp-3), env(safe-area-inset-bottom)) max(var(--sp-4), env(safe-area-inset-left));
+  background: rgba(244, 248, 248, 0.96);
+  border-top: 1px solid var(--c-border);
+  box-shadow: 0 -8px 24px rgba(10, 42, 49, 0.1);
+  transform: translateY(110%);
+  transition: transform var(--t-base) var(--ease);
+}
+
+.lp-sticky.is-on {
+  transform: none;
+}
+
+.lp-sticky .btn {
+  flex: 1;
+  min-height: 52px;
+}
+
+.lp-sticky .btn--wa {
+  flex: none;
+  width: 52px;
+  padding: 0;
+  background: #1f7a4d;
+  color: var(--c-inverse);
+}
+
+.lp-sticky .btn--wa:hover {
+  background: #17603c;
+}
+
+.lp-sticky .btn--wa .icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1024px) {
+  .lp-sticky {
+    display: none;
+  }
+}
+
+/* A barra fixa não pode cobrir o fim do rodapé no celular */
+@media (max-width: 1023.98px) {
+  .site-footer {
+    padding-bottom: 96px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. Movimento
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .lp-hero__text > * {
+    animation: rise 700ms var(--ease) both;
+  }
+
+  .lp-hero__text > :nth-child(2) {
+    animation-delay: 70ms;
+  }
+
+  .lp-hero__text > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .lp-hero__text > :nth-child(4) {
+    animation-delay: 210ms;
+  }
+
+  .lp-hero .lp-form {
+    animation: rise 800ms var(--ease) 160ms both;
+  }
+
+  .lp-layout:not([hidden]) {
+    animation: lp-swap 320ms var(--ease) both;
+  }
+
+  @keyframes lp-swap {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+}
+
+@media print {
+  .site-header,
+  .lp-sticky {
+    display: none !important;
+  }
+}
+
+/* Acabamento */
+.lp-final .lp-area {
+  color: var(--c-inverse-2);
+}
+
+@media (min-width: 1024px) {
+  .lp-spec--4 .lp-spec__item h4 {
+    min-height: 2.6em;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Páginas filhas de layout (/ambientes/cozinhas/<layout>/)
+   --------------------------------------------------------------------------- */
+
+/* Trilha de navegação, logo abaixo do cabeçalho */
+.lp-crumbs {
+  padding: var(--sp-4) 0 0;
+  font-size: var(--fs-small);
+  color: var(--c-text-2);
+}
+
+.lp-crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-crumbs li + li::before {
+  content: "›";
+  margin-right: var(--sp-2);
+  color: var(--c-border-strong);
+}
+
+.lp-crumbs a {
+  color: inherit;
+}
+
+.lp-crumbs [aria-current="page"] {
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+/* Comparativo de duas colunas: funciona quando × pense duas vezes */
+@media (min-width: 1024px) {
+  .lp-compare--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lp-compare__col--watch {
+  border-color: var(--c-border-strong);
+  background: var(--c-bg);
+}
+
+/* Links para os outros layouts do mesmo hub */
+.lp-siblings {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .lp-siblings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-siblings {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.lp-siblings a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  height: 100%;
+  padding: var(--sp-5) var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--t-base) var(--ease),
+    box-shadow var(--t-base) var(--ease),
+    transform var(--t-base) var(--ease);
+}
+
+.lp-siblings a:hover {
+  border-color: var(--c-dark);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(-2px);
+}
+
+.lp-siblings b {
+  display: block;
+  font-weight: 600;
+}
+
+.lp-siblings span span {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  color: var(--c-text-2);
+}
+
+.lp-siblings .icon {
+  flex: none;
+  color: var(--c-accent);
+}
+
+/* --------------------------------------------------------------------------
+   8. Páginas de Serviços Locais: Modelos Consolidados e Bairros Atendidos
+   -------------------------------------------------------------------------- */
+.lp-models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-6);
+  margin-top: var(--sp-8);
+}
+
+.lp-model-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+
+.lp-model-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--c-dark);
+  box-shadow: var(--shadow-subtle);
+}
+
+.lp-model-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--c-brand);
+  margin-bottom: var(--sp-2);
+}
+
+.lp-model-card__lead {
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+  margin-bottom: var(--sp-4);
+  line-height: 1.6;
+}
+
+.lp-model-card__specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--sp-3);
+  font-size: var(--fs-small);
+  color: var(--c-text);
+  border-top: 1px solid var(--c-border);
+  padding-top: var(--sp-4);
+  margin-top: auto;
+}
+
+.lp-model-card__specs li {
+  line-height: 1.5;
+}
+
+.lp-model-card__specs b {
+  color: var(--c-brand);
+}
+
+/* Lista semântica estruturada de bairros atendidos */
+.lp-bairros__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: var(--sp-3);
+  list-style: none;
+  padding: 0;
+  margin-top: var(--sp-6);
+}
+
+.lp-bairros__grid li {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-small);
+  color: var(--c-text);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.lp-bairros__grid li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-brand);
+  flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Distritos SP — grid de cards compactos (home page, #distritos-sp)
+   -------------------------------------------------------------------------- */
+.distritos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  margin: var(--sp-10) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 480px) {
+  .distritos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .distritos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .distritos-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .distritos-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.distritos-grid li {
+  display: contents;
+}
+
+.distritos-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-4) var(--sp-3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  background: var(--c-surface);
+  color: var(--c-text);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.3;
+  min-height: 52px;
+  transition:
+    border-color var(--t-base) var(--ease),
+    background var(--t-base) var(--ease),
+    color var(--t-base) var(--ease),
+    transform var(--t-base) var(--ease),
+    box-shadow var(--t-base) var(--ease);
+}
+
+.distritos-grid a:hover {
+  border-color: var(--c-accent);
+  background: var(--c-tint);
+  color: var(--c-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--c-scrim), .10);
+}

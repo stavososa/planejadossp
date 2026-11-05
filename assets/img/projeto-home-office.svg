@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" width="1800" height="1000" role="img" aria-label="Ilustração de home office planejado com bancada de trabalho, armários aéreos, prateleiras iluminadas e cadeira" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="hoWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFF6F7"/><stop offset="1" stop-color="#CBDADD"/></linearGradient>
+    <linearGradient id="hoFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2B38C"/><stop offset="1" stop-color="#BC9468"/></linearGradient>
+    <linearGradient id="hoCab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#113B45"/><stop offset="1" stop-color="#0A2A31"/></linearGradient>
+    <linearGradient id="hoWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DCBF9A"/><stop offset="1" stop-color="#C19C70"/></linearGradient>
+    <linearGradient id="hoSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4FBFC"/><stop offset="1" stop-color="#C6E3E8"/></linearGradient>
+    <linearGradient id="hoShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".17"/></linearGradient>
+    <linearGradient id="hoUnder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2A31" stop-opacity=".3"/><stop offset="1" stop-color="#0B2A31" stop-opacity="0"/></linearGradient>
+  </defs>
+
+  <rect width="1800" height="1000" fill="url(#hoWall)"/>
+  <rect y="790" width="1800" height="210" fill="url(#hoFloor)"/>
+  <rect y="782" width="1800" height="12" fill="#0A2A31" opacity=".1"/>
+
+  <!-- Janela lateral -->
+  <rect x="1420" y="130" width="320" height="460" rx="10" fill="url(#hoSky)"/>
+  <rect x="1420" y="130" width="320" height="460" rx="10" fill="none" stroke="#0A2A31" stroke-opacity=".28" stroke-width="10"/>
+  <path d="M1580 130v460M1420 360h320" stroke="#0A2A31" stroke-opacity=".2" stroke-width="8"/>
+
+  <!-- Armários aéreos -->
+  <rect x="120" y="110" width="760" height="210" rx="12" fill="url(#hoCab)"/>
+  <rect x="120" y="110" width="760" height="210" rx="12" fill="url(#hoShade)"/>
+  <path d="M373 118v194M626 118v194" stroke="#A9DCE3" stroke-opacity=".28" stroke-width="5"/>
+  <rect x="236" y="296" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="490" y="296" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="744" y="296" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="120" y="320" width="760" height="40" fill="url(#hoUnder)"/>
+
+  <!-- Prateleiras iluminadas -->
+  <rect x="940" y="200" width="420" height="22" rx="8" fill="url(#hoWood)"/>
+  <rect x="940" y="188" width="420" height="7" rx="3" fill="#A9DCE3" opacity=".85"/>
+  <rect x="940" y="360" width="420" height="22" rx="8" fill="url(#hoWood)"/>
+  <rect x="940" y="348" width="420" height="7" rx="3" fill="#A9DCE3" opacity=".85"/>
+  <g fill="#0A2A31" opacity=".28">
+    <rect x="980" y="140" width="20" height="60" rx="4"/><rect x="1008" y="128" width="20" height="72" rx="4"/><rect x="1036" y="148" width="20" height="52" rx="4"/>
+    <rect x="1180" y="136" width="86" height="64" rx="8"/>
+    <rect x="990" y="306" width="20" height="54" rx="4"/><rect x="1018" y="292" width="20" height="68" rx="4"/>
+    <rect x="1160" y="300" width="96" height="60" rx="8"/>
+  </g>
+
+  <!-- Bancada de trabalho -->
+  <rect x="120" y="470" width="1120" height="34" rx="8" fill="url(#hoWood)"/>
+  <rect x="120" y="504" width="1120" height="16" fill="#0A2A31" opacity=".1"/>
+
+  <!-- Gaveteiro e torre de apoio -->
+  <rect x="150" y="520" width="280" height="270" rx="10" fill="url(#hoCab)"/>
+  <rect x="150" y="520" width="280" height="270" rx="10" fill="url(#hoShade)"/>
+  <path d="M150 610h280M150 700h280" stroke="#A9DCE3" stroke-opacity=".26" stroke-width="5"/>
+  <rect x="230" y="560" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="230" y="650" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+  <rect x="230" y="740" width="120" height="12" rx="6" fill="#A9DCE3" opacity=".5"/>
+
+  <rect x="1060" y="520" width="180" height="270" rx="10" fill="url(#hoCab)"/>
+  <rect x="1060" y="520" width="180" height="270" rx="10" fill="url(#hoShade)"/>
+  <path d="M1060 655h180" stroke="#A9DCE3" stroke-opacity=".26" stroke-width="5"/>
+
+  <!-- Monitor, teclado e passagem de cabos -->
+  <rect x="560" y="250" width="320" height="200" rx="10" fill="#0A2A31" opacity=".9"/>
+  <rect x="584" y="274" width="272" height="152" rx="6" fill="#A9DCE3" opacity=".45"/>
+  <path d="M720 450v20h-60" stroke="#0A2A31" stroke-opacity=".5" stroke-width="12" stroke-linecap="round"/>
+  <rect x="600" y="440" width="240" height="22" rx="8" fill="#FFFFFF" opacity=".85"/>
+  <path d="M900 470v120a30 30 0 0 0 30 30h40" fill="none" stroke="#0A2A31" stroke-opacity=".25" stroke-width="8"/>
+
+  <!-- Cadeira -->
+  <rect x="560" y="640" width="260" height="42" rx="18" fill="#A9DCE3"/>
+  <rect x="600" y="520" width="180" height="120" rx="20" fill="#A9DCE3" opacity=".75"/>
+  <path d="M690 682v70" stroke="#0A2A31" stroke-opacity=".35" stroke-width="14" stroke-linecap="round"/>
+  <path d="M620 790h140" stroke="#0A2A31" stroke-opacity=".3" stroke-width="12" stroke-linecap="round"/>
+
+  <rect width="1800" height="1000" fill="url(#hoShade)" opacity=".5"/>
+</svg>

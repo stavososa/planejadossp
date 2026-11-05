@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" width="1800" height="1000" role="img" aria-label="Ilustração de banheiro planejado com gabinete suspenso, bancada com duas cubas, espelheira iluminada e nicho de box" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="banWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F7F8"/><stop offset="1" stop-color="#CFDEE1"/></linearGradient>
+    <linearGradient id="banFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9DFE0"/><stop offset="1" stop-color="#BFCACC"/></linearGradient>
+    <linearGradient id="banCab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#113B45"/><stop offset="1" stop-color="#0A2A31"/></linearGradient>
+    <linearGradient id="banStone" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FDFEFE"/><stop offset="1" stop-color="#E2EBEC"/></linearGradient>
+    <linearGradient id="banWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D8BC98"/><stop offset="1" stop-color="#C3A074"/></linearGradient>
+    <linearGradient id="banShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>
+    <linearGradient id="banUnder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2A31" stop-opacity=".32"/><stop offset="1" stop-color="#0B2A31" stop-opacity="0"/></linearGradient>
+    <linearGradient id="banGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9DCE3" stop-opacity=".45"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".2"/></linearGradient>
+  </defs>
+
+  <rect width="1800" height="1000" fill="url(#banWall)"/>
+  <rect y="840" width="1800" height="160" fill="url(#banFloor)"/>
+
+  <!-- Parede revestida atrás da bancada -->
+  <rect x="90" y="60" width="900" height="780" fill="#FFFFFF" opacity=".55"/>
+  <path d="M390 60v780M690 60v780M90 340h900M90 620h900" stroke="#0A2A31" stroke-opacity=".08" stroke-width="6"/>
+
+  <!-- Espelheira iluminada -->
+  <rect x="170" y="140" width="740" height="300" rx="12" fill="#DCEAEC"/>
+  <rect x="170" y="140" width="740" height="300" rx="12" fill="url(#banGlass)"/>
+  <rect x="170" y="140" width="740" height="300" rx="12" fill="none" stroke="#0A2A31" stroke-opacity=".2" stroke-width="8"/>
+  <rect x="150" y="124" width="780" height="14" rx="7" fill="#A9DCE3" opacity=".85"/>
+  <rect x="150" y="444" width="780" height="14" rx="7" fill="#A9DCE3" opacity=".6"/>
+
+  <!-- Bancada em pedra com duas cubas -->
+  <rect x="120" y="520" width="840" height="40" rx="8" fill="url(#banStone)"/>
+  <rect x="120" y="520" width="840" height="40" rx="8" fill="none" stroke="#0A2A31" stroke-opacity=".16" stroke-width="5"/>
+  <rect x="236" y="474" width="200" height="46" rx="12" fill="#FFFFFF"/>
+  <rect x="236" y="474" width="200" height="46" rx="12" fill="none" stroke="#0A2A31" stroke-opacity=".22" stroke-width="7"/>
+  <rect x="644" y="474" width="200" height="46" rx="12" fill="#FFFFFF"/>
+  <rect x="644" y="474" width="200" height="46" rx="12" fill="none" stroke="#0A2A31" stroke-opacity=".22" stroke-width="7"/>
+  <path d="M336 474v-66M744 474v-66" stroke="#0A2A31" stroke-opacity=".45" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Gabinete suspenso -->
+  <rect x="150" y="560" width="780" height="230" rx="12" fill="url(#banCab)"/>
+  <rect x="150" y="560" width="780" height="230" rx="12" fill="url(#banShade)"/>
+  <path d="M540 568v214" stroke="#A9DCE3" stroke-opacity=".3" stroke-width="5"/>
+  <rect x="280" y="620" width="130" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="670" y="620" width="130" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="280" y="710" width="130" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="670" y="710" width="130" height="12" rx="6" fill="#A9DCE3" opacity=".55"/>
+  <rect x="150" y="790" width="780" height="54" fill="url(#banUnder)"/>
+
+  <!-- Torre de apoio em madeira -->
+  <rect x="1000" y="300" width="190" height="540" rx="12" fill="url(#banWood)"/>
+  <path d="M1000 430h190M1000 560h190M1000 690h190" stroke="#0A2A31" stroke-opacity=".18" stroke-width="7"/>
+  <rect x="1026" y="350" width="60" height="54" rx="8" fill="#FFFFFF" opacity=".8"/>
+  <rect x="1104" y="470" width="62" height="60" rx="8" fill="#A9DCE3" opacity=".7"/>
+
+  <!-- Box com vidro e nicho embutido -->
+  <rect x="1250" y="120" width="470" height="720" rx="10" fill="url(#banGlass)"/>
+  <rect x="1250" y="120" width="470" height="720" rx="10" fill="none" stroke="#0A2A31" stroke-opacity=".28" stroke-width="10"/>
+  <rect x="1330" y="330" width="200" height="150" rx="8" fill="#0A2A31" opacity=".2"/>
+  <rect x="1352" y="352" width="70" height="52" rx="6" fill="#FFFFFF" opacity=".7"/>
+  <rect x="1440" y="408" width="66" height="50" rx="6" fill="#A9DCE3" opacity=".75"/>
+  <path d="M1600 170v150M1540 200h120" stroke="#0A2A31" stroke-opacity=".35" stroke-width="10" stroke-linecap="round"/>
+
+  <rect width="1800" height="1000" fill="url(#banShade)" opacity=".5"/>
+</svg>
