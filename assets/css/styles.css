@@ -2383,3 +2383,167 @@ textarea {
   height: 420px;
   border: 0;
 }
+
+/* ==========================================================================
+   Bairros atendidos em São Paulo (#distritos-sp)
+   Cards compactos, simples e com belo visual
+   ========================================================================== */
+.distritos-sp-section {
+  background: var(--c-bg);
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.distritos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  margin: var(--sp-10) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 580px) {
+  .distritos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 860px) {
+  .distritos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3) var(--sp-4);
+  }
+}
+
+@media (min-width: 1200px) {
+  .distritos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.distritos-grid li {
+  display: flex;
+}
+
+.distrito-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 18px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  color: var(--c-text);
+  box-shadow: 0 1px 4px rgba(10, 42, 49, 0.04);
+  transition:
+    transform var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    box-shadow var(--t-fast) var(--ease);
+}
+
+.distrito-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--c-accent);
+  background: #ffffff;
+  color: var(--c-accent);
+  box-shadow: 0 6px 18px -2px rgba(10, 42, 49, 0.10);
+}
+
+.distrito-card__name {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: inherit;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.distrito-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--c-border-strong);
+  flex-shrink: 0;
+  margin-left: var(--sp-2);
+  transition:
+    color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.distrito-card__arrow svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.distrito-card:hover .distrito-card__arrow {
+  color: var(--c-accent);
+  transform: translateX(3px);
+}
+
+/* Divisória sutil entre capital e cidades da região metropolitana */
+.distritos-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin: var(--sp-12) 0 var(--sp-6);
+}
+
+.distritos-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--c-border);
+}
+
+.distritos-divider__tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+  padding: 5px 16px;
+  background: var(--c-tint);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.distritos-subhead {
+  text-align: center;
+  margin-bottom: var(--sp-8);
+}
+
+.distritos-subhead__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 400;
+  color: var(--c-dark);
+  margin: 0 0 var(--sp-2);
+}
+
+.distritos-subhead__desc {
+  font-size: var(--fs-small);
+  color: var(--c-text-2);
+  max-width: 58ch;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.distritos-sp__cta {
+  margin: var(--sp-10) 0 0;
+  text-align: center;
+}
+
