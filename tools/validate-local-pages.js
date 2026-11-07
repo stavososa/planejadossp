@@ -79,11 +79,14 @@ for (const f of listarHtml(ROOT)) {
 }
 for (const s of slugsBase) if (fs.existsSync(path.join(ROOT, 'sao-paulo', s))) falha('5-caminho antigo', `pasta sao-paulo/${s} ainda existe`);
 
-/* 6: ../../ nos distritos movidos; canonical e breadcrumb */
+/* 6: ../../ nos distritos movidos; canonical e breadcrumb sem ascendência de /sao-paulo/ */
 for (const p of paginas.filter(x => !x.cidade)) {
   if (p.html.includes('../../')) falha('6-../../', p.slug);
   if (!p.html.includes(`https://SEU-DOMINIO/${p.slug}/`)) falha('canonical', `${p.slug}: URL com -sp ausente`);
-  if (!/"name": "São Paulo",\s*"item": "https:\/\/SEU-DOMINIO\/sao-paulo\/"/.test(p.html)) falha('breadcrumb', `${p.slug}: item São Paulo`);
+  const crumbVisual = (p.html.match(/<nav class="container lp-crumbs"[\s\S]*?<\/nav>/) || [''])[0];
+  if (/São Paulo/.test(crumbVisual)) falha('breadcrumb', `${p.slug}: ascendência "São Paulo" na trilha visual`);
+  const crumbJsonLd = (p.html.match(/"@type": "BreadcrumbList",[\s\S]*?\]\s*\}/) || [''])[0];
+  if (/"name": "São Paulo"/.test(crumbJsonLd)) falha('breadcrumb', `${p.slug}: ascendência "São Paulo" no JSON-LD`);
 }
 
 /* 7: termos (headings + corpo) */
