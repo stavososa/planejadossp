@@ -354,10 +354,12 @@ function dois(r) {
   return r() < 0.5 ? [a, b] : [b, a];
 }
 
+// A description precisa usar um termo-chave DIVERGENTE do H1 (mesmo contexto,
+// palavra diferente) — nunca repetir o termo exato que já está no H1.
 function servicoDoH1(rec, r) {
   const kw = (rec.palavraChave || '').toLowerCase();
-  if (SERVICOS.includes(kw)) return kw;
-  return pick(SERVICOS, r);
+  const pool = SERVICOS.filter(s => s !== kw && !kw.includes(s) && !s.includes(kw));
+  return pick(pool.length ? pool : SERVICOS, r);
 }
 
 const SCHEMAS_DESC = [
@@ -443,14 +445,14 @@ function compor(schemas, ctxBase, seed, limite, df, dfMax, minimo, extra, estado
 
 const DESC_CIDADES = {
   osasco: 'Planejados em Osasco para casas coladas, apartamentos novos e escritórios: medição técnica no endereço, orçamento por escrito e atendimento pelo WhatsApp.',
-  guarulhos: 'Reforma de um ambiente ou da casa toda em Guarulhos: móveis planejados e marcenaria sob medida, com medição técnica e orçamento item por item.',
+  guarulhos: 'Reforma de um ambiente ou da casa toda em Guarulhos: marcenaria sob medida, com medição técnica e orçamento item por item.',
   barueri: 'Móveis sob medida em Barueri, de casa em condomínio a imóvel alugado: conte o imóvel e confirmamos atendimento, medição e orçamento.',
   diadema: 'Marcenaria e móveis planejados em Diadema para reformar um ambiente por vez: medição técnica, orçamento por escrito e atendimento confirmado pelo endereço.',
   'santo-andre': 'Móveis personalizados em Santo André, em casa ou apartamento: a conversa muda conforme o bairro. Envie as medidas e peça orçamento pelo WhatsApp.',
   'sao-bernardo-do-campo': 'Marcenaria sob medida em São Bernardo do Campo: projeto sobre medidas reais, orçamento por escrito e atendimento confirmado pelo seu endereço.',
   'sao-caetano-do-sul': 'Móveis planejados para apartamento em São Caetano do Sul: medição técnica, regras do condomínio na conversa e orçamento por escrito.',
-  'taboao-da-serra': 'Móveis planejados em Taboão da Serra, colada à capital: medição técnica, orçamento por escrito e atendimento confirmado pelo seu endereço.',
-  'mogi-das-cruzes': 'Marcenaria em Mogi das Cruzes, de condomínio horizontal a apartamento: projeto com medidas reais, orçamento por escrito e contato pelo WhatsApp.'
+  'taboao-da-serra': 'Marcenaria sob medida em Taboão da Serra, colada à capital: medição técnica, orçamento por escrito e atendimento confirmado pelo seu endereço.',
+  'mogi-das-cruzes': 'Móveis sob medida em Mogi das Cruzes, de condomínio horizontal a apartamento: projeto com medidas reais, orçamento por escrito e contato pelo WhatsApp.'
 };
 
 function extrairDados(html) {

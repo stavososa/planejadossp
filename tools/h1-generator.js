@@ -137,8 +137,6 @@ const SUFIXOS = [
   { id: 'SUF13', texto: ' para ambientes mais funcionais', grupo: 'para', tags: ['ambiente', 'funcional'], afinidade: { cidade: 0.6, distrito: 0.8, bairro: 0.9 } },
   { id: 'SUF14', texto: ' para transformar sua casa', grupo: 'para', tags: ['casa', 'transforma'], afinidade: { cidade: 0.7, distrito: 0.8, bairro: 0.9 } },
   { id: 'SUF15', texto: ' para transformar seu ambiente', grupo: 'para', tags: ['ambiente', 'transforma'], afinidade: { cidade: 0.6, distrito: 0.8, bairro: 0.9 } },
-  { id: 'SUF16', texto: ' para o seu dia a dia', grupo: 'para', beneficio: true, tags: [], afinidade: { cidade: 0.8, distrito: 0.9, bairro: 0.9 } },
-  { id: 'SUF17', texto: ' para sua rotina', grupo: 'para', beneficio: true, tags: [], afinidade: { cidade: 0.8, distrito: 0.9, bairro: 0.9 } },
   { id: 'SUF18', texto: ' para casa e apartamento', grupo: 'para', tags: ['casa', 'imovel'], semKw: ['imovel'], afinidade: { cidade: 0.9, distrito: 0.8, bairro: 0.8 } },
   { id: 'SUF19', texto: ' para reformas e imóveis novos', grupo: 'para', tags: ['imovel'], semKw: ['imovel'], afinidade: { cidade: 0.8, distrito: 0.8, bairro: 0.7 } },
   { id: 'SUF20', texto: ' com seu estilo', grupo: 'com', tags: ['estilo'], afinidade: { cidade: 0.8, distrito: 1, bairro: 1 } },
@@ -250,12 +248,17 @@ function compativel(pre, kw, conector, suf) {
     if (pre.tags && inter(pre.tags, kw.tags)) return false;
     if (pre.familia === 'beneficio' && conector === 'para') return false;
     if (pre.familia === 'beneficio' && kw.conectores.indexOf('em') === -1) return false;
+    // prefixos que começam com "Para" (condicionais) não combinam com o conector
+    // "para" (ex.: KW13/KW14): evita duplicidade "Para quem busca ... para [local]"
+    if (/^Para /i.test(pre.texto) && conector === 'para') return false;
   }
   if (suf) {
     if (suf.semKw && inter(suf.semKw, kw.tags)) return false;
     if (inter(suf.tags, kw.tags)) return false;
     if (conector === 'para' && suf.grupo === 'para') return false;
     if (conector === 'para' && suf.grupo === 'sm') return false;
+    // palavra-chave já "planejada" + sufixo "sob medida" soa redundante/contraditório
+    if (kw.tags.indexOf('plan') !== -1 && suf.grupo === 'sm') return false;
     if (pre) {
       if (pre.semSufixoPara && suf.grupo === 'para') return false;
       if (pre.semSufixoPara && suf.id === 'SUF20') return false; // "Para quem busca ... com seu estilo"
